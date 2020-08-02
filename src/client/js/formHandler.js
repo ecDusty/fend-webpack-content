@@ -1,5 +1,5 @@
 import { checkForName } from './nameChecker';
-export function handleSubmit(event) {
+export function formHandler(event) {
     event.preventDefault()
 
     // check what text was put into the form field
