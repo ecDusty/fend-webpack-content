@@ -1,4 +1,4 @@
-import { formHandler } from './js/formHandler';
+import { formHandler } from '../components/form/formHandler';
 alert("I EXIST")
 
 const form = document.querySelector('form');
