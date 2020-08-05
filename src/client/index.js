@@ -1,10 +1,10 @@
 import styles from './styles/main';
-import { checkForName } from './components/form/nameChecker';
+// import { checkForName } from './components/form/nameChecker';
 import { handleSubmit } from './components/form/formHandler';
 
 console.log(checkForName);
 
-alert("I EXIST")
+// alert("I EXIST")
 
 
 document.querySelector('form').addEventListener('submit', (e) => handleSubmit(e));
