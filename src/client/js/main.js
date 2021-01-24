@@ -1,7 +1,7 @@
-import { checkForName } from '../components/form/nameChecker';
+// import { checkForName } from '../components/form/nameChecker';
 import { handleSubmit } from '../components/form/formHandler';
 
-console.log(checkForName);
+// console.log(checkForName);
 
 // alert("I EXIST")
 

@@ -9,14 +9,20 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 app.get('/', function (req, res) {
+    console.log('homepage loaded')
     res.sendFile('dist/index.html')
+})
+
+app.get('/test', function (req, res) {
+    console.log('Test is being run')
+    res.status(200).send({
+        success: 'true',
+        message: 'API is working',
+        data: mockAPIResponse
+    })
 })
 
 // designates what port the app will listen to for incoming requests
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
-})
-
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
 })
