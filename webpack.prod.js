@@ -53,7 +53,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/client/views/index.html',
             file: './index.html',
-            publicPath: '/media',
+            // publicPath: '/media',
             scriptLoading: 'defer'
         }),
 
