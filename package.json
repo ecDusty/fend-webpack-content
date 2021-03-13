@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server/index.js",
-    "build": "webpack"
+    "build": "webpack-dev-server --config webpack.dev.js --open",
+    "live": " webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,11 @@
     "@babel/core": "^7.12.17",
     "@babel/preset-env": "^7.12.17",
     "babel-loader": "^8.2.2",
-    "webpack-dev-server": "^3.11.0"
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.22.0",
+    "eslint-loader": "^4.0.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.2",
+    "webpack-dev-server": "^3.11.2"
   }
 }

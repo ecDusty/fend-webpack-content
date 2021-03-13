@@ -4,15 +4,17 @@ const mockAPIResponse = require('./mockAPI.js')
 
 const app = express()
 
-app.use(express.static('dist'))
+// All distributions files are served under the fact folder "media"
+// app.use('/media', express.static(`${__dirname}/../../dist`))
 
-console.log(__dirname)
+app.use(express.static(`${__dirname}/../../dist`))
 
+// Serves HTML file on launch
 app.get('/', function (req, res) {
-    res.sendFile('/src/client/views/index.html', { root: __dirname + '/../..' })
+    res.sendFile('/dist/index.html', { root: __dirname + '/../..' })
 })
 
-// designates what port the app will listen to for incoming requests
+// Designates what port the app will listen to for incoming requests
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
