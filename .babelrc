@@ -1,3 +1,7 @@
 {
+<<<<<<< Updated upstream
     'presets': ['@babel/preset-env']
+=======
+    "presets": ["@babel/preset-env"]
+>>>>>>> Stashed changes
 }
