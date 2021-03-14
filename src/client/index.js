@@ -1,5 +1,5 @@
 //Styles
-import './styles/main.scss'
+import styles from './styles/main.scss'
 
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
