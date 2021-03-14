@@ -1,7 +1,12 @@
+//Styles
+import './styles/main.scss'
+
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
-import('./images/test.jpg')
+import myImage from './images/test.jpg'
 
 console.log(checkForName);
+
+console.log(myImage);
 
 alert("I EXIST")

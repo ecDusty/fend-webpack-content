@@ -28,21 +28,29 @@ module.exports = {
                     }
                 ],
             },
+            // {
+            //   // html configuration
+            //   test: /\.html$/,
+            //   use: {
+            //     loader: "html-loader"
+            //   }
+            // },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             outputPath: 'img',
-                            regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
+                            regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.(png|jpe?g|gif|svg)$/i,
                             name(file) {
                                 if (module.exports.mode === 'development') {
                                   return '[folder]-[name].[ext]';
                                 }
 
                                 return '[contenthash].[ext]';
-                            }
+                            },
+                            esModule: false
                         },
                     }
                 ]
@@ -50,15 +58,15 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin({
+            verbose: true,
+        }),
+
         new HtmlWebpackPlugin({
             template: './src/client/views/index.html',
             file: './index.html',
             // publicPath: '/media',
             scriptLoading: 'defer'
-        }),
-
-        new CleanWebpackPlugin({
-            verbose: true,
         })
     ]
 }

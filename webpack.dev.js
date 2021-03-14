@@ -12,7 +12,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
                     {
@@ -30,20 +30,33 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                // STYLES : Sass Processor
+                test: /\.sass$/,
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+            },
+            // {
+            //   // html configuration
+            //   test: /\.html$/,
+            //   use: {
+            //     loader: "html-loader"
+            //   }
+            // },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             outputPath: 'img',
-                            regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/i,
+                            regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.(png|jpe?g|gif|svg)$/i,
                             name(file) {
                                 if (module.exports.mode === 'development') {
                                   return '[folder]-[name].[ext]';
                                 }
 
                                 return '[contenthash].[ext]';
-                            }
+                            },
+                            esModule: false
                         },
                     }
                 ]
@@ -51,21 +64,24 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/client/views/index.html',
-            file: './index.html',
-            // publicPath: '/media',
-            scriptLoading: 'defer'
-        }),
-
         new CleanWebpackPlugin({
             // Simulate the removal of files
-            dry: true,
+            // dry: true,
             // Write Logs to Console
             verbose: true,
+
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
-    ]
+        }),
+
+        new HtmlWebpackPlugin({
+            template: './src/client/views/index.html',
+            scriptLoading: 'defer'
+        }),
+    ],
+    output: {
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist')
+    }
 }

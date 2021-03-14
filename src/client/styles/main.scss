@@ -1,0 +1,18 @@
+/*======
+Variables & Functions
+-----*/
+@import './settings/variables';
+
+/*====
+GENERAL
+-----*/
+@import './general/resets';
+@import './general/base';
+
+
+/*=======
+COMPONENTS
+-----*/
+@import './../components/header/header';
+@import './../components/forms/form';
+@import './../components/footer/footer';
