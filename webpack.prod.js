@@ -28,6 +28,11 @@ module.exports = {
                     }
                 ],
             },
+            {
+                // STYLES : Sass Processor
+                test: /\.s(a|c)ss$/,
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+            },
             // {
             //   // html configuration
             //   test: /\.html$/,
