@@ -31,7 +31,7 @@ module.exports = {
             },
             {
                 // STYLES : Sass Processor
-                test: /\.sass$/,
+                test: /\.s(a|c)ss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
             },
             // {
@@ -80,6 +80,9 @@ module.exports = {
             scriptLoading: 'defer'
         }),
     ],
+	resolve: {
+		extensions: ['.js', '.jsx', '.scss']
+	},
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
