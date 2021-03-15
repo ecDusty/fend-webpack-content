@@ -95,7 +95,7 @@ module.exports = {
         }),
     ],
 	resolve: {
-		// extensions: ['.js', '.jsx', '.scss']
+		extensions: ['.js', '.jsx', '.scss']
 	},
     output: {
         filename: '[name].[contenthash].js',
