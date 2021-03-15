@@ -1,4 +1,4 @@
 {
-    "presets": ["@babel/preset-env"],
-    "babelrcRoots": "js"
+    "presets": ["@babel/preset-env"]
+    // "babelrcRoots": "js"
 }

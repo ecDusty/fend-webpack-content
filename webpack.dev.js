@@ -13,14 +13,28 @@ module.exports = {
     module: {
         rules: [
             {
+                // STYLES : Sass Processor
+                test: /\.s(a|c)ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: require('sass'),
+                        }
+                    },
+                ]
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',
-                        options: {
-                            outputPath: 'js',
-                        }
+                        // options: {
+                        //     outputPath: 'js',
+                        // }
                     },
                     {
                         loader: 'eslint-loader',
@@ -29,11 +43,6 @@ module.exports = {
                         }
                     }
                 ],
-            },
-            {
-                // STYLES : Sass Processor
-                test: /\.s(a|c)ss$/,
-                use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
             },
             // {
             //   // html configuration
@@ -89,7 +98,7 @@ module.exports = {
         }),
     ],
 	resolve: {
-		extensions: ['.js', '.jsx', '.scss']
+		// extensions: ['.js', '.jsx', '.scss']
 	},
     output: {
         filename: '[name].[contenthash].js',
