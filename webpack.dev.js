@@ -32,9 +32,6 @@ module.exports = {
                 use: [
                     {
                         loader: 'babel-loader',
-                        // options: {
-                        //     outputPath: 'js',
-                        // }
                     },
                     {
                         loader: 'eslint-loader',
